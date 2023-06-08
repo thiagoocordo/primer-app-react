@@ -1,17 +1,45 @@
-import React from 'react'
-import { Contacto } from './Contacto'
+import React, { useState } from 'react'
+import { Contacto } from './Objects/Contacto'
 import PropTypes from 'prop-types'
 import ComponenteB from './ComponenteB'
+import ContactForm from './Forms/ContactForm'
 
-const ComponenetA = ({contacto}) => {
+const ComponenetA = () => {
+  const Conatcto = new Contacto(
+    'Thiago',
+    'Cordoba',
+    'dsada@gmail.com',
+    false
+  )
+    const [Contacts, setContacts] = useState([Conatcto])
+
+    function deleteConatct(contact){
+      const index= Contacts.indexOf(contact)
+      const tempConatct=[...Contacts]
+      tempConatct.splice(index,1)
+      setContacts(tempConatct)
+    }
+
+    function addContact(contact){
+      const tempConatct = [...Contacts]
+      tempConatct.push(contact)
+      setContacts(tempConatct)
+    }
   return (
     <div>
         <div>
-            <h2>Nombre:{contacto.Nombre}</h2>
-            <h3>Apellidos: {contacto.Apellido}</h3>
-            <h3>Email: {contacto.Email}</h3>
-            <ComponenteB estado={true} />
+        {Contacts.map((contact, index) => {
+                                    return (
+                                            <ComponenteB 
+                                                eliminar={deleteConatct}
+                                                key={index} 
+                                                contacto={contact}>
+                                            </ComponenteB>
+                                        )
+                                    }
+                                )}
         </div>
+        <ContactForm add={addContact}></ContactForm>
     </div>
   )
 }
