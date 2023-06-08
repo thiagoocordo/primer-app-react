@@ -17,11 +17,11 @@ const Clock = () => {
     return () => {
       clearInterval(intervalAge);
     };
-  });
+  },[defaultState]);
 
   const actualiceUser = () => {
     return setUser({
-      fecha: user.fecha,
+      fecha: new Date(),
       edad: user.edad + 1,
       nombre: user.nombre,
       apellidos: user.apellidos,

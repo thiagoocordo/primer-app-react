@@ -1,17 +1,13 @@
 import './App.css';
 import ComponenetA from './ComponenetA';
-import { Contacto } from './Contacto';
+import { Contacto } from './Objects/Contacto';
+import Clock from './Clock'
+
 
 function App() {
-   const contactoPrueba = new Contacto(
-      'Thiago',
-      'Cordoba',
-      'fulanito@open-bootcamp.com',
-      false,
-  )
   return (
     <div className="App">
-        <ComponenetA contacto={contactoPrueba}></ComponenetA>
+        <ComponenetA />
     </div>
   );
 }
