@@ -1,5 +1,5 @@
 import './App.css';
-import ComponenetA from './ComponenetA';
+import ComponenetA from './Components/ComponenetA';
 import { Contacto } from './Objects/Contacto';
 import Clock from './Clock'
 

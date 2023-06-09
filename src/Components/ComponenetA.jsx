@@ -1,17 +1,24 @@
 import React, { useState } from 'react'
-import { Contacto } from './Objects/Contacto'
+import { Contacto } from '../Objects/Contacto'
 import PropTypes from 'prop-types'
 import ComponenteB from './ComponenteB'
-import ContactForm from './Forms/ContactForm'
+import ContactForm from '../Forms/ContactForm'
 
 const ComponenetA = () => {
   const Conatcto = new Contacto(
     'Thiago',
     'Cordoba',
     'dsada@gmail.com',
-    false
+    true
   )
     const [Contacts, setContacts] = useState([Conatcto])
+
+    function changeConnected(contact){
+      const index= Contacts.indexOf(contact)
+      const tempConatct=[...Contacts]
+      tempConatct[index].Conectado = !tempConatct[index].Conectado
+      setContacts(tempConatct)
+    }
 
     function deleteConatct(contact){
       const index= Contacts.indexOf(contact)
@@ -33,7 +40,10 @@ const ComponenetA = () => {
                                             <ComponenteB 
                                                 eliminar={deleteConatct}
                                                 key={index} 
-                                                contacto={contact}>
+                                                contacto={contact}
+                                                change={changeConnected}
+                                                >
+                                                
                                             </ComponenteB>
                                         )
                                     }
