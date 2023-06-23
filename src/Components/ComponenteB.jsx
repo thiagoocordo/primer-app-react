@@ -7,10 +7,10 @@ function ComponenteB({contacto,eliminar,change}) {
 
   function Connect(){
     if(contacto.Conectado){
-        return (<i onClick={() => change(contacto)} className='bi-toggle-on ' style={{color: 'green'}}> </i>)
+        return (<i onClick={() => change(contacto)} className='bi-toggle-on ' style={{color: 'green', cursor:'pointer'}}> </i>)
       }
       else{
-        return (<i onClick={() => change(contacto)} className='bi-toggle-off ' style={{color: 'grey'}}> </i>)
+        return (<i onClick={() => change(contacto)} className='bi-toggle-off ' style={{color: 'grey', cursor:'pointer'}}> </i>)
 
     }
   }

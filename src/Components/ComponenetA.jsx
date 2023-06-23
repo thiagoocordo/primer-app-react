@@ -12,6 +12,7 @@ const ComponenetA = () => {
     true
   )
     const [Contacts, setContacts] = useState([Conatcto])
+   
 
     function changeConnected(contact){
       const index= Contacts.indexOf(contact)
@@ -32,6 +33,9 @@ const ComponenetA = () => {
       tempConatct.push(contact)
       setContacts(tempConatct)
     }
+
+
+
   return (
     <div>
         <div>
@@ -43,7 +47,7 @@ const ComponenetA = () => {
                                                 contacto={contact}
                                                 change={changeConnected}
                                                 >
-                                                
+                                        
                                             </ComponenteB>
                                         )
                                     }
