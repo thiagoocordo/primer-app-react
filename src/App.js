@@ -7,16 +7,19 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [color, setColor] = useState('#000000')
-  const [cahngeColor, setChangeColor] = useState(false);
-
-  useEffect(() => {
-    if (cahngeColor  === true){
-        generateHex()
-    }
-  }, [cahngeColor])
-  
+  const [interval, setManageInterval] = useState(0);
 
   const getColor = () => Math.floor(Math.random() * 256);
+
+  useEffect(() => {
+      if(interval !== 0) {
+        console.log(interval)
+      }
+      else{
+        console.log ("Hola")
+      }
+  }, [interval])
+  
 
   const getHex = (red, green, blue) => {
     return (
@@ -40,18 +43,18 @@ function App() {
   };
 
   const onChangeColor = () => {
-    console.log("NIco puto")
-    setChangeColor(true)
+    setManageInterval(setInterval(generateHex,500))
   };
 
   const onStopChangeColor = () => {
-    setChangeColor(false)
-    console.log(cahngeColor+ "Leave")
+    clearInterval(interval)
+    setManageInterval(0)
   };
 
   const onClickChangeColor = () => {
-   setChangeColor(false)
-   console.log(cahngeColor + "Click")
+    clearInterval(interval)
+    setManageInterval(clearInterval(interval))
+    setManageInterval(0)
   };
   return (
     <div className="App"
